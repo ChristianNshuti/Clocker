@@ -1,16 +1,22 @@
-# React + Vite
+# Digital Clock App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Features
+- Clock with timezone selection
+- Alarm with snooze/dismiss
+- Stopwatch
+- Timer with alarm
 
-Currently, two official plugins are available:
+## How to run
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Web (live demo)
+- Visit: https://clocker-606qdkndv-chrisnshuti943-2374s-projects.vercel.app/
 
-## React Compiler
+### Windows
+1. Download `clock-app.exe` from https://drive.google.com/file/d/1Va9wI_gT-QoyNcPkUE2IdvnvLmZMVPUY/view?usp=sharing
+2. Double click to open the app
+3. Use tabs to explore Clock, Alarm, Stopwatch, Timer
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### Build from source
+1. Clone the repo: https://github.com/ChristianNshuti/Clocker
+2. Install dependencies: `npm install`
+3. Run locally: `npm run electron`
