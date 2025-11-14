@@ -56,6 +56,12 @@ const dismissAlarm = () => {
     }
 };
 
+const cancelAlarm = () => {
+    setIsAlarmSet(false);
+    setAlarmTime("");
+};
+
+
 const snoozeAlarm = () => {
     dismissAlarm();
 
@@ -220,10 +226,16 @@ const snoozeAlarm = () => {
                     >
                         Set Alarm
                     </button>
+                   
                     {isAlarmSet && (
+                        <>
                         <p className="current-alarm">
                             ⏰ Alarm set for: <strong>{alarmTime}</strong>
+                            
                         </p>
+                            <button onClick={cancelAlarm}>Cancel Alarm</button>
+                    
+                        </>
                     )}
 
 
