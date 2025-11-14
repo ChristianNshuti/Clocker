@@ -1,0 +1,14 @@
+body,html, #root {
+  height: 100%;
+  margin:0;
+  padding:0;
+  background: radial-gradient(circle at center, #001f3f, #000);
+  font-family:"Poppins",sans-serif;
+}
+
+.app {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}

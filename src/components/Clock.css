@@ -1,0 +1,154 @@
+.clock-container {
+    text-align:center;
+    margin-top:80px;
+    font-family:"Poppins",sans-serif;
+    color:#fff;
+    background:#111;
+    padding:40px;
+    border-radius:20px;
+    box-shadow:0 4px 20px rgba(255,255,255,0.2);
+}
+
+.clock-time {
+    font-size:3rem;
+    margin:0;
+}
+
+.clock-date {
+    font-size:1.2rem;
+    color:#ccc;
+    margin-bottom:20px;
+}
+
+.timezone-selector,
+.alarm-section {
+    margin-top:20px;
+}
+
+select,
+inpu[type="time"] {
+    background: #222;
+    color: #fff;
+    padding: 8px 12px;
+    border: 1px solid #555;
+    border-radius:8px;
+    margin-left:10px;
+}
+
+button {
+    background: #1e90ff;
+    border:none;
+    padding:8px 16px;
+    color:#fff;
+    border-radius: 8px;
+    cursor:pointer;
+    transition:0.3s;
+    margin-left:10px;
+}
+
+button:hover {
+    background:#0078e7;
+}
+
+.stop-btn {
+    background: #ff4444;
+}
+
+.tabs {
+    display:flex;
+    justify-content:center;
+    gap:15px;
+    margin-bottom:20px;
+}
+
+.tabs button {
+    background: #333;
+    color: #fff;
+    padding: 8px 16px;
+    border-radius:10px;
+    border:none;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.tabs button.active {
+    background:#1e90ff;
+}
+
+.stopwatch { 
+    margin-top:30px;
+}
+
+.stopwatch-time {
+    font-size:3rem;
+    margin-bottom:20px;
+}
+
+.stopwatch-controls button {
+    background:#1e90ff;
+    border:none;
+    padding:10px 20px;
+    color:#fff;
+    border-radius:8px;
+    cursor:pointer;
+    margin:0 10px;
+    transition:0.3s;
+}
+
+.stopwatch-controls button:hover {
+    background:#0078e7;
+}
+
+.tabs button.active {
+    background:#1e90ff;
+}
+
+.stopwatch {
+    margin-top:30px;
+}
+
+.stopwatch-time {
+    font-size:3rem;
+    margin-bottom:20px;
+}
+
+.stopwatch-controls button {
+    background:#1e90ff;
+    border:none;
+    padding: 10px 20px;
+    color: #fff;
+    border-radius:8px;
+    cursor:pointer;
+    margin: 0 10px;
+    transition:0.3s;
+}
+
+.stopwatch-controls button:hover {
+    background: #0078e7;
+}
+
+.timer {
+    margin-top:20px;
+}
+
+.timer input {
+    padding:8px;
+    width:100px;
+    margin-right:10px;
+    border-radius:5px;
+    border:1px solid #ccc;
+}
+
+.timer button {
+    margin: 5px;
+    padding: 8px 15px;
+    background: #1e90ff;
+    color:white;
+    border:none;
+    border-radius:5px;
+    cursor:pointer;
+}
+
+.timer button:hover {
+    background:#0078e7;
+}
