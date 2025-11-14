@@ -18,6 +18,7 @@ export default function Clock() {
     const [timerInput,setTimerInput] = useState("");
     const [isTimerRunning,setIsTimerRunning] = useState(false);
     const timerRef = useRef(null);
+    const timerSoundRef = useRef(null);
 
     const [activeTab,setActiveTab] = useState("clock");
 
@@ -107,17 +108,20 @@ const snoozeAlarm = () => {
     }
 
     const startTimer = () => {
-        if(!isTimerRunning && timerTime > 0) {
-            setIsTimerRunning(true);
-            const endTime = Date.now() + timerTime;
-            timerRef.current = setInterval(() => {
-                const remaining = endTime - Date.now();
-                if(remaining <=0) {
-                    clearInterval(timerRef.current);
-                    setIsTimerRunning(false);
-                    setTimertime(0);
-                    alert("Time finished");
-                    new Audio(music_alarm).play();
+    if(!isTimerRunning && timerTime > 0) {
+        setIsTimerRunning(true);
+        const endTime = Date.now() + timerTime;
+        timerRef.current = setInterval(() => {
+            const remaining = endTime - Date.now();
+            if (remaining <= 0) {
+                clearInterval(timerRef.current);
+                setIsTimerRunning(false);
+                setTimertime(0);
+
+                    // Play timer sound
+                    timerSoundRef.current = new Audio(music_alarm);
+                    timerSoundRef.current.loop = true; // loop if you want continuous ringing
+                    timerSoundRef.current.play();
                 } else {
                     setTimertime(remaining);
                 }
@@ -125,10 +129,20 @@ const snoozeAlarm = () => {
         }
     };
 
+    const stopTimerSound = () => {
+        if (timerSoundRef.current) {
+            timerSoundRef.current.pause();
+            timerSoundRef.current.currentTime = 0;
+            timerSoundRef.current = null; // reset so button disappears
+        }
+    };
+
     const stopTimer = () => {
         clearInterval(timerRef.current);
         setIsTimerRunning(false);
     };
+
+
 
     const resetTimer = () => {
         clearInterval(timerRef.current);
@@ -159,7 +173,7 @@ const snoozeAlarm = () => {
                 onClick={() => setActiveTab("alarm")}>
                     Alarm
                 </button>
-                <button className={activeTab === "stopwatch" ? "active" : ""}
+                <button className={activeTab === "timer" ? "active" : ""}
                 onClick={() => setActiveTab("timer")}
                 >
                     Timer
@@ -225,7 +239,6 @@ const snoozeAlarm = () => {
                     <button onClick={resetStopwatch}>Reset</button>
                 </div>
             )}
-
             {activeTab === "timer" && (
                 <div className="timer">
                     <h1 className="timer-time">{formatTimer(timerTime)}</h1>
@@ -235,12 +248,26 @@ const snoozeAlarm = () => {
                         value={timerInput}
                         onChange={(e) => setTimerInput(e.target.value)}
                     />
-                    <button onClick={() => { setTimertime(Number(timerInput) * 1000); setTimerInput(""); }}>Set</button>
+                    <button 
+                        onClick={() => { 
+                            setTimertime(Number(timerInput) * 1000); 
+                            setTimerInput(""); 
+                        }}
+                    >
+                        Set
+                    </button>
                     <button onClick={startTimer} disabled={isTimerRunning}>Start</button>
                     <button onClick={stopTimer}>Stop</button>
                     <button onClick={resetTimer}>Reset</button>
+
+                    {/* Show Stop Sound button only when timer sound is playing */}
+                    {timerSoundRef.current && (
+                        <button onClick={stopTimerSound}>Stop Sound</button>
+                    )}
                 </div>
             )}
+
+
         </div>
     )
 }

@@ -1,33 +1,29 @@
-import { app, BrowserWindow } from 'electron'
-import path from 'path'
-import { fileURLToPath } from 'url'
+import { app, BrowserWindow } from 'electron';
+import path from 'path';
+import { fileURLToPath } from 'url';
 
-const __filename = fileURLToPath(import.meta.url)
-const __dirname = path.dirname(__filename)
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 function createWindow() {
   const win = new BrowserWindow({
-    width: 1000,
-    height: 700,
+    width: 800,
+    height: 600,
     webPreferences: {
-      preload: path.join(__dirname, 'preload.js'), // optional
+      nodeIntegration: true,
+      contextIsolation: false,
     },
-  })
+  });
 
-  // Load Vite build
-  win.loadFile(path.join(__dirname, 'dist', 'index.html'))
+  // Use path.resolve and file:// protocol
+  const indexPath = path.resolve(__dirname, 'dist', 'index.html');
+  win.loadURL(`file://${indexPath}`);
 
 
 }
 
-app.whenReady().then(createWindow)
+app.whenReady().then(createWindow);
 
 app.on('window-all-closed', () => {
-  if (process.platform !== 'darwin') app.quit()
-})
-
-app.on('activate', () => {
-  if (BrowserWindow.getAllWindows().length === 0) createWindow()
-})
-
-
+  if (process.platform !== 'darwin') app.quit();
+});
