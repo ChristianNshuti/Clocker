@@ -173,6 +173,11 @@ const snoozeAlarm = () => {
                 onClick={() => setActiveTab("alarm")}>
                     Alarm
                 </button>
+                 <button className={activeTab === "stopwatch" ? "active" : ""}
+                onClick={() => setActiveTab("stopwatch")}
+                >
+                    Stopwatch
+                </button>
                 <button className={activeTab === "timer" ? "active" : ""}
                 onClick={() => setActiveTab("timer")}
                 >
